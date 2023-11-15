@@ -173,6 +173,7 @@ BUT_ONLY
 
 /* PC is not a thief if they open their chests */
   COPY_EXISTING ~ACT03.bcs~ ~override~
+                ~JA#LAW05.bcs~ ~override~ // trap script in Ducal Palace from Lawsystem component of Jarl's Adventure Pack
 	DECOMPILE_AND_PATCH BEGIN
 		SPRINT textToReplace ~Opened(\[ANYONE\])~
 		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
@@ -183,7 +184,7 @@ BUT_ONLY
 			PATCH_WARN ~WARNING: could not find %textToReplace% in %SOURCE_FILESPEC%~
 		END
 	END
-  BUT_ONLY
+  IF_EXISTS BUT_ONLY
 
 <<<<<<<< .../ar0110_container_pc.baf
 /* unlock PC'scontainer */
